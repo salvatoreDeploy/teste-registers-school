@@ -4,7 +4,7 @@
 [x] PhpMyAdmin
 [x] Mysql
 [x] Criar banco
-[] Conectar o banco
+[x] Conectar o banco
 [] Criar extrutura do projeto
 
 # Entidades:
@@ -15,7 +15,7 @@
 
 # Requisitos funcionais:
 
-[] Deve ser possivel cadastrar um aluno (id, nome, data-nasc, cpf)
+[x] Deve ser possivel cadastrar um aluno (id, nome, data-nasc, cpf)
 [] Deve ser possivel cadastrar uma turma (id, descrição, ano, vagas)
 [] Deve ser possivel registar uma matricula (id_aluno, id_turma, data_matricula)
 [] Deve ser possivel gerar um relatorio de chamada, com filtro por turma, com uma tabela mostrando os dados.

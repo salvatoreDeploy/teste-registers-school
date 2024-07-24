@@ -28,4 +28,10 @@ class Aluno
 
         $stmt->close();
     }
+
+    public function getAllStudents(): array{
+        $sql = "SELECT * FROM students";
+        $result =  $this->database->conn->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
