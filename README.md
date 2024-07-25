@@ -24,6 +24,12 @@
 
 [x] Ao registrar uma matricula deve verificar se existe vaga na turma.
 [] Não deve ser possivel matricular um aluno que não esta cadastrado
+[] Não deve ser possivel matricular um aluno que ja esta matriculado em outra turma
+[] Não deve ser possivel matricular um aluno em uma turma que não exista
+[] Não deve ser possivel cadastar uma turma com ano anterior ao atual
+[] Não deve ser possivel cadastar uma turma com qtd de vagas inferior a zero
+[] Validação de cpf
+[] Tratamento de cpf
 
 # Requisitos não funcionais:
 

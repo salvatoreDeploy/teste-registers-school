@@ -46,7 +46,7 @@ class Enrollment
             if($stmt->execute()){
                 echo "Matriculado com sucesso!";
             }else{
-                echo "Erro ao registrar matricula!";
+                echo "Erro ao registrar matricula! " . $this->database->conn->error;
             }
             $stmt->close();
         }else{
