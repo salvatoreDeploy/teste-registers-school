@@ -1,7 +1,8 @@
 <?php
 
-class Aluno
+class Students
 {
+    # TODO: validar se ja tem esse cpf cadastrado
     private Database $database;
 
     public function __construct(Database $database){
@@ -21,7 +22,7 @@ class Aluno
         $stmt->bind_param("sss", $name, $birth_date, $cpf);
 
         if($stmt->execute()){
-            echo "Aluno cadastrado com sucesso.";
+            echo "Students cadastrado com sucesso.";
         }else {
             echo "Erro ao cadastrar aluno: " . $stmt->error;
         }

@@ -16,13 +16,14 @@
 # Requisitos funcionais:
 
 [x] Deve ser possivel cadastrar um aluno (id, nome, data-nasc, cpf)
-[] Deve ser possivel cadastrar uma turma (id, descrição, ano, vagas)
-[] Deve ser possivel registar uma matricula (id_aluno, id_turma, data_matricula)
-[] Deve ser possivel gerar um relatorio de chamada, com filtro por turma, com uma tabela mostrando os dados.
+[x] Deve ser possivel cadastrar uma turma (id, descrição, ano, vagas)
+[x] Deve ser possivel registar uma matricula (id_aluno, id_turma, data_matricula)
+[x] Deve ser possivel gerar um relatorio de chamada, com filtro por turma, com uma tabela mostrando os dados.
 
 # Regra de negocio:
 
-[] Ao registrar uma matricula deve verificar se existe vaga na turma.
+[x] Ao registrar uma matricula deve verificar se existe vaga na turma.
+[] Não deve ser possivel matricular um aluno que não esta cadastrado
 
 # Requisitos não funcionais:
 
