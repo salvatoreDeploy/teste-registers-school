@@ -1,11 +1,12 @@
 <?php
 
-require '../Database.php';
-require '../Enrollment.php';
-require '../Classes.php';
+use Source\Models\Enrollment;
 
-$database = new Database();
-$enrollment = new Enrollment($database);
+require '../Models/Database.php';
+require '../Models/Enrollment.php';
+require '../Models/Classes.php';
+
+$enrollment = new Enrollment();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_student = $_POST["id_student"];
@@ -14,6 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $enrollment->register($id_student, $id_classe, $registration_date);
 
-    echo "Aluno cadastrado com sucesso!";
-    echo '<a href="../index.php">Voltar</a>';
+    echo "Aluno matriculado com sucesso! ";
+    echo '<a href="../../index.php">Voltar</a>';
 }

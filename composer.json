@@ -1,0 +1,20 @@
+{
+  "name": "henrique/teste-escola",
+  "description": "Teste para desenvolver funcionalidades para um sistema de escola",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Henrique J. Araujo",
+      "email": "liderhenrique@gmail.com"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "Source\\": "source/"
+  },
+  "files": [],
+  "require": {}
+}

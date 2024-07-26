@@ -1,18 +1,20 @@
 <?php
 
-class Report
-{
-    private Database $database;
+namespace Source\Models;
 
-    public function __construct(Database $database) {
-        $this->database = $database;
+use Database;
+
+class Report extends Database
+{
+    public function __construct() {
+       parent::__construct();
     }
 
     public function classCall(int $id_classe)
     {
-        $enrollment = new Enrollment($this->database);
+        $enrollment = new Enrollment();
 
-        $studentsListClass = $enrollment->getListByClass(1);
+        $studentsListClass = $enrollment->getListByClass($id_classe);
 
         echo "<table border='1'>";
         echo "<tr><th>Nome</th><th>Data de Nascimento</th><th>Chamada</th></tr>";

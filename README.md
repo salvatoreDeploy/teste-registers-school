@@ -5,13 +5,8 @@
 [x] Mysql
 [x] Criar banco
 [x] Conectar o banco
-[] Criar extrutura do projeto
+[X] Criar extrutura do projeto
 
-# Entidades:
-
-- Aluno
-- Turma
-- Matricula
 
 # Requisitos funcionais:
 
@@ -23,6 +18,7 @@
 # Regra de negocio:
 
 [x] Ao registrar uma matricula deve verificar se existe vaga na turma.
+[] Não deve ser possivel registar um aluno que ja tenha cpf cadastrado
 [] Não deve ser possivel matricular um aluno que não esta cadastrado
 [] Não deve ser possivel matricular um aluno que ja esta matriculado em outra turma
 [] Não deve ser possivel matricular um aluno em uma turma que não exista
@@ -32,8 +28,7 @@
 [] Tratamento de cpf
 
 # Requisitos não funcionais:
-
-PHP
+PHP 
 Mysql
 POO
-JS se necessario.
+JS "se necessario"

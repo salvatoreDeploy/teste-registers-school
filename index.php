@@ -1,9 +1,12 @@
 <?php
-require 'Database.php';
-require 'Classes.php';
+require __DIR__ . '/vendor/autoload.php';
 
-$database = new Database();
-$classes = new Classes($database);
+use Source\Models\Classes;
+
+require 'source/Models/Database.php';
+require 'source/Models/Classes.php';
+
+$classes = new Classes();
 $fetchClasses = $classes->getAllClasses();
 
 ?>
@@ -14,7 +17,7 @@ $fetchClasses = $classes->getAllClasses();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escola - Sistema de Matrículas</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="source/styles/style.css">
 </head>
 <body>
 
@@ -25,12 +28,12 @@ $fetchClasses = $classes->getAllClasses();
 </header>
 
 <h2>Cadastrar novo Aluno</h2>
-<form action="pages/aluno-page.php" method="post">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="name" required>
+<form action="source/pages/aluno-page.php" method="post">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
 
-    <label for="data_nascimento">Data de Nascimento:</label>
-    <input type="date" id="data_nascimento" name="birth_date" required>
+    <label for="birth_date">Data de Nascimento:</label>
+    <input type="date" id="birth_date" name="birth_date" required>
 
     <label for="cpf">CPF:</label>
     <input type="text" id="cpf" name="cpf" required>
@@ -39,26 +42,26 @@ $fetchClasses = $classes->getAllClasses();
 </form>
 
 <h2>Registrar nova Turma</h2>
-<form action="pages/turma-page.php" method="post">
-    <label for="descricao">Descrição:</label>
-    <input type="text" id="descricao" name="description" required>
+<form action="source/pages/turma-page.php" method="post">
+    <label for="description">Descrição:</label>
+    <input type="text" id="description" name="description" required>
 
-    <label for="ano">Ano:</label>
-    <input type="number" id="ano" name="year_at" required>
+    <label for="year_at">Ano:</label>
+    <input type="number" id="year_at" name="year_at" required>
 
-    <label for="vagas">Vagas:</label>
-    <input type="number" id="vagas" name="vacancies" required>
+    <label for="vacancies">Vagas:</label>
+    <input type="number" id="vacancies" name="vacancies" required>
 
     <input type="submit" value="Cadastrar Turma">
 </form>
 
 <h2>Realizar Matrícula</h2>
-<form action="pages/matricula.php" method="post">
-    <label for="id_aluno">ID aluno:</label>
-    <input type="number" id="id_aluno" name="id_student" required>
+<form action="source/pages/matricula.php" method="post">
+    <label for="id_student">ID aluno:</label>
+    <input type="number" id="id_student" name="id_student" required>
 
-    <label for="id_turma">Selecionar Turma:</label>
-    <select id="id_turma" name="id_classe">
+    <label for="id_classe">Selecionar Turma:</label>
+    <select id="id_classe" name="id_classe">
         <?php
             $fetchClasses = $classes->getAllClasses();
         ?>
@@ -68,16 +71,16 @@ $fetchClasses = $classes->getAllClasses();
         <?php endforeach; ?>
     </select>
 
-    <label for="data_matricula">Data da Matrícula:</label>
-    <input type="date" id="data_matricula" name="registration_date" required>
+    <label for="registration_date">Data da Matrícula:</label>
+    <input type="date" id="registration_date" name="registration_date" required>
 
     <input type="submit" value="Cadastrar Matrícula">
 </form>
 
 <h2>Relatório de chamadas </h2>
-<form action="pages/relatorio-chamada.php" method="get">
-    <label for="id_turma_relatorio">Selecionar Turma:</label>
-    <select id="id_turma" name="id_classe">
+<form action="source/pages/relatorio-chamada.php" method="get">
+    <label for="id_classe">Selecionar Turma:</label>
+    <select id="id_classe" name="id_classe">
         <?php
         $fetchClasses = $classes->getAllClasses();
         ?>

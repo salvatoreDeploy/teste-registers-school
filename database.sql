@@ -21,6 +21,6 @@ CREATE TABLE enrollment (
   id_student INT,
   id_classe INT,
   registration_date DATE,
-  FOREIGN KEY (cpf_student) REFERENCES students(cpf),
+  FOREIGN KEY (id_student) REFERENCES students(id),
   FOREIGN KEY (id_classe) REFERENCES classes(id)
 );

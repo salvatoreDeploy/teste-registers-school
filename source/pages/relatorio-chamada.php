@@ -1,13 +1,14 @@
 <?php
 
-require '../Database.php';
-require '../Report.php';
-require '../Enrollment.php';
+use Source\Models\Enrollment;
 
-$database = new Database();
+require '../Models/Database.php';
+require '../Models/Report.php';
+require '../Models/Enrollment.php';
+
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    $enrollments = new Enrollment($database);
+    $enrollments = new Enrollment();
 
     $id_classe = $_GET['id_classe'];
 
@@ -42,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                <?php endforeach; ?>
            </table>
        </div>
-        <a href="../index.php">Voltar</a>
+        <a href="../../index.php">Voltar</a>
     </body>
 </html>
 <?php

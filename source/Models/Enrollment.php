@@ -1,20 +1,23 @@
 <?php
 
-class Enrollment
-{
-    private Database $database;
+namespace Source\Models;
 
-    public function __construct(Database $database)
+use Database;
+
+class Enrollment extends Database
+{
+
+    public function __construct()
     {
-        $this->database = $database;
+        parent::__construct();
     }
 
     private function countEnrollmentClass(int $id_classe): int {
         $sql = "SELECT COUNT(*) AS total FROM enrollment WHERE id_classe = ?";
-        $stmt = $this->database->conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
 
         if ($stmt === false) {
-            die("Erro ao preparar a consulta: " . $this->database->conn->error);
+            die("Erro ao preparar a consulta: " . $this->conn->error);
         }
 
         $stmt->bind_param("i", $id_classe);
@@ -27,7 +30,7 @@ class Enrollment
 
     public function register(int $id_student, int $id_classe, string $registration_date )
     {
-        $classes = new Classes($this->database);
+        $classes = new Classes();
         $available_vacancies = $classes->getAvailableVacancies($id_classe);
 
         $total_number_enrolled = $this->countEnrollmentClass($id_classe);
@@ -36,17 +39,15 @@ class Enrollment
         if($total_number_enrolled < $available_vacancies){
             $sql = "INSERT INTO enrollment (id_student, id_classe, registration_date) VALUES (?, ?, ?)";
 
-            $stmt = $this->database->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             if ($stmt === false) {
-                die("Erro ao preparar a consulta: " . $this->database->conn->error);
+                die("Erro ao preparar a consulta: " . $this->conn->error);
             }
 
             $stmt->bind_param("iss", $id_student, $id_classe, $registration_date);
 
-            if($stmt->execute()){
-                echo "Matriculado com sucesso!";
-            }else{
-                echo "Erro ao registrar matricula! " . $this->database->conn->error;
+            if(!$stmt->execute()){
+                echo "Erro ao matricular aluno Erro: " . $stmt->error;
             }
             $stmt->close();
         }else{
@@ -62,10 +63,10 @@ class Enrollment
         JOIN students ON enrollment.id_student = students.id
         WHERE enrollment.id_classe = ?";
 
-        $stmt = $this->database->conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
 
         if ($stmt === false) {
-            die("Erro ao preparar a consulta: " . $this->database->conn->error);
+            die("Erro ao preparar a consulta: " . $this->conn->error);
         }
 
         $stmt->bind_param("i", $id_classe);
